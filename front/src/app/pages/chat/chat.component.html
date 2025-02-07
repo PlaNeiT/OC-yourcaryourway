@@ -1,0 +1,19 @@
+<div class="chat-container">
+  <div class="chat-box">
+    <div #messagesContainer class="messages">
+      <div *ngFor="let message of messages" class="message">
+        <strong>{{ message.sender }}:</strong> {{ message.content }}
+      </div>
+    </div>
+    <div class="input-area">
+      <input
+        [(ngModel)]="messageContent"
+        type="text"
+        class="form-control"
+        placeholder="Tapez un message..."
+        (keydown.enter)="sendMessage()" />
+      <button (click)="sendMessage()" class="btn btn-primary">Envoyer</button>
+    </div>
+    <button (click)="clearMessages()" class="btn btn-danger mt-2">Effacer tous les messages</button>
+  </div>
+</div>
